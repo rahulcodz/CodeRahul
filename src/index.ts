@@ -1,9 +1,8 @@
 import express, { Request, Response } from "express";
 import { render } from "./cli";
-const requestIp = require('request-ip')
-const { prompt } = require('enquirer');
-
-
+import { createFiles } from "./create";
+const requestIp = require("request-ip");
+const { prompt } = require("enquirer");
 
 const app = express();
 const port = 3000;
@@ -13,11 +12,8 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/cli", async (req: Request, res: Response) => {
-  
-  var clientIp = requestIp.getClientIp(req)
-  console.log(clientIp);
-  
   // render();
+  createFiles();
   res.status(200).json("cli executed");
 });
 
