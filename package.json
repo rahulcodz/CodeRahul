@@ -1,30 +1,25 @@
 {
-  "name": "node-infinity",
-  "version": "1.0.4",
-  "description": "",
-  "main": "index.js",
+  "name": "infinitynode",
+  "version": "1.0.0",
+  "main": "ts_template.js",
   "scripts": {
-    "start": "ts-node index.ts",
-    "dev": "nodemon index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec ts-node src/server.ts"
   },
-  "bin": "./bin/cli.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/express": "^4.17.21",
+  "description": "",
+  "dependencies": {
     "@types/node": "^20.14.10",
-    "nodemon": "^3.1.4",
+    "express": "^4.19.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   },
-  "dependencies": {
-    "@inquirer/select": "^2.3.10",
-    "chalk": "^5.3.0",
-    "enquirer": "^2.4.1",
-    "express": "^4.19.2",
-    "inquirer": "^10.0.1",
-    "request-ip": "^3.3.0"
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.4"
   }
 }
