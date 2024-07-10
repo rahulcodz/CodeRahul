@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import { render } from "./cli";
 import createFiles from "./ts_template";
 const requestIp = require("request-ip");
 const { prompt } = require("enquirer");
@@ -12,8 +11,8 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/cli", async (req: Request, res: Response) => {
-  render();
-  // createFiles();
+  // render();
+  createFiles();
   res.status(200).json("cli executed");
 });
 
