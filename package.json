@@ -8,6 +8,7 @@
     "dev": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": "./ts_template.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
