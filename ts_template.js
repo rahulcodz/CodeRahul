@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require("path");
 const fs = require("fs").promises; // Using promises version of fs for async/await
 const { exec } = require("child_process");
