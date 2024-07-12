@@ -1,22 +1,28 @@
 import express, { Request, Response } from 'express';
+import bodyParser from 'body-parser';
 import { connect } from './db/connection';
-import 'dotenv/config'
-import { createUser } from './controllers/user.controller';
+import 'dotenv/config';
+import router from './routes/user.routes';
+import cors from 'cors';
 
 const app = express();
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
-const router = express.Router();
+app.use(bodyParser.json());
+app.use(cors());
 
-connect()
+connect();
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!');
 });
 
-router.post('/users', createUser);
-router.get('/users', createUser);
+app.use('/users', router);
 
-app.listen(port, () => {
-    console.log('Server started');
+app.use('**', (req: Request, res: Response) => {
+    res.send('No data found');
+});
+
+app.listen(PORT, () => {
+    console.log('Server started on http://localhost:' + PORT);
 });
