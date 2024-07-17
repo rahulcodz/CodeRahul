@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process';
 import { commandAnswer } from './command.js';
+import chalk from 'chalk';
 
 const runCommand = (command) => {
   try {
@@ -48,8 +49,14 @@ const runCommand = (command) => {
     console.log(
       'Follow the following commands to start'
     );
-    console.log(`cd ${repoName} && npm start`);
+    console.log(chalk.bold.bgBlue(`cd ${repoName}`));
+    console.log(chalk.bold.bgGreen("Commands for interacting with application..."));
+    console.log("development: " + chalk.blue(`npm run dev`));
+    console.log((`build: ` + chalk.blue("npm run build")));
+    console.log(`production: `  + chalk.blue("npm start"));
+    console.log(`formatting: `  + chalk.blue("npm run format:write"));
+    console.log(`linting: `  + chalk.blue("npm run lint:check"));
   } catch (error) {
-    console.log('Failed executing command: ' + error);
+    console.log(chalk.bgRed('Failed executing command: ') + error);
   }
 })();
